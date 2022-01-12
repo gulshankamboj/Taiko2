@@ -55,7 +55,7 @@ jobs:
           libpangocairo-1.0-0 \
           libgtk-3-0 \
           libgbm-dev 
-          install chromium-browser
+          chromium-browser
         
     - run: npm test
     - name: Upload Results
