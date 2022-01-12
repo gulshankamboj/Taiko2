@@ -21,20 +21,9 @@ jobs:
       run: |
           npm install
           
-    - name: Set up Go 1.17
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.17
-      id: go
-
-    - name: Build
-      run: |
-        go run build/make.go --verbose      
-
     - name: Install Gauge
       run: |
-        go run build/make.go --install --prefix=/tmp/gauge --verbose
-        echo "/tmp/gauge/bin" >> $GITHUB_PATH
+        npm install -g @getgauge/cli
 
     - name: Install Taiko
       run: |
