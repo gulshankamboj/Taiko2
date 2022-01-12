@@ -27,7 +27,6 @@ jobs:
 
     - name: Install Taiko
       run: |
-        cd gauge-taiko-test
         npm install taiko
 
     - name: Prep gauge-js
