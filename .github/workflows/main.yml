@@ -21,24 +21,12 @@ jobs:
       run: |
           npm install
           
-    - name: Set up Go 1.16
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.16
-      id: go
-
-    - name: Build
-      run: |
-        go run build/make.go --verbose      
-
     - name: Install Gauge
       run: |
-        go run build/make.go --install --prefix=/tmp/gauge --verbose
-        echo "/tmp/gauge/bin" >> $GITHUB_PATH
+        npm install -g @getgauge/cli
 
     - name: Install Taiko
       run: |
-        cd gauge-taiko-test
         npm install taiko
 
     - name: Prep gauge-js
@@ -56,7 +44,6 @@ jobs:
 
     - name: install browser dependencies
       run: |
-        cd gauge-taiko-test
         sudo apt-get update
         sudo apt-get install -y \
           libnss3 \
@@ -68,3 +55,9 @@ jobs:
           libpangocairo-1.0-0 \
           libgtk-3-0 \
           libgbm-dev 
+    - run: npm test
+    - name: Upload Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: TestResults
+        path: reports/
