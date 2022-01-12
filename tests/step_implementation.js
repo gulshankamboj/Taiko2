@@ -24,7 +24,7 @@ const headless = process.env.headless_chrome.toLowerCase() === 'true';
 
 beforeSuite(async () => {
     await openBrowser({
-        headless: headless
+        headless: headless,args: ['--no-sandbox', '--disable-setuid-sandbox']
     })
 });
 
