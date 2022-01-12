@@ -59,7 +59,7 @@ jobs:
           libgtk-3-0 \
           libgbm-dev 
         
-    - run: npm test
+    - run: gauge run --tags "headless"  --verbose specs
     - name: Upload Results
       uses: actions/upload-artifact@v2
       with:
