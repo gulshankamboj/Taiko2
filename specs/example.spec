@@ -7,7 +7,7 @@ Every bulleted point is a step.
 To execute this specification, use
 	npm test
 
-Tags: headless
+Tags: headless, parallel
 
 This is a context step that runs before every scenario
 * Open todo application
