@@ -34,31 +34,7 @@ jobs:
         git clone https://github.com/getgauge/gauge-js.git
         cd gauge-js
         npm install
-      shell: bash
 
-    - name: Install gauge-js
-      run: |
-        cd gauge-js
-        npm run installPlugin
-
-    - name: Install Chromium
-      run: |
-        npm install --save chromium
-
-    - name: install browser dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          libnss3 \
-          libatk1.0-0 \
-          libatk-bridge2.0-0 \
-          libxcomposite1 \
-          libcups2 \
-          libxrandr2 \
-          libpangocairo-1.0-0 \
-          libgtk-3-0 \
-          libgbm-dev 
-        
     - run: gauge run --tags "headless"  --verbose specs
     - name: Upload Results
       uses: actions/upload-artifact@v2
